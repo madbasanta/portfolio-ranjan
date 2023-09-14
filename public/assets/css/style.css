@@ -26,6 +26,18 @@ body::before {
   right: 0;
   top: 0;
   height: 100vh;
+  z-index: -2;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5) top right no-repeat;
+  background-size: cover;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 100vh;
   z-index: -1;
 }
 

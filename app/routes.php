@@ -19,4 +19,8 @@ return function (App $app) {
         return $this->get('view')->render($response, 'index.twig');
     });
 
+    $app->get('/music-video', function (Request $request, Response $response) {
+        return $this->get('view')->render($response, 'music-video.twig');
+    });
+
 };

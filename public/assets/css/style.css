@@ -32,7 +32,7 @@ body::before {
 body::after {
   content: "";
   position: fixed;
-  background: rgba(0, 0, 0, 0.5) top right no-repeat;
+  background: rgba(0, 0, 0, 0.6) top right no-repeat;
   background-size: cover;
   left: 0;
   right: 0;

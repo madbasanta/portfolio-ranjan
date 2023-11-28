@@ -3,12 +3,12 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log('ready');
     document.querySelector('.main-about').click();
     Object.assign(document.querySelector('#home').style, {
-        'margin-top' : '-80px'
+        'margin-top' : '-100px'
     });
     setTimeout(() => {
         let navHeight = document.querySelector('#header').clientHeight;
         Object.assign(document.querySelector('#homeVideo').style, {
-            'height' : `calc(100vh - ${ navHeight - 60 }px)`
+            'height' : `calc(100vh - ${ navHeight - 80 }px)`
         }); 
     }, 1000);
     document.querySelector('.main-home').remove();

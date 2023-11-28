@@ -19,8 +19,20 @@ return function (App $app) {
         return $this->get('view')->render($response, 'index.twig');
     });
 
+    $app->get('/documentry', function (Request $request, Response $response) {
+        return $this->get('view')->render($response, 'documentry.twig');
+    });
     $app->get('/music-video', function (Request $request, Response $response) {
         return $this->get('view')->render($response, 'music-video.twig');
+    });
+    $app->get('/commercials', function (Request $request, Response $response) {
+        return $this->get('view')->render($response, 'commercials.twig');
+    });
+    $app->get('/travel', function (Request $request, Response $response) {
+        return $this->get('view')->render($response, 'travel.twig');
+    });
+    $app->get('/events', function (Request $request, Response $response) {
+        return $this->get('view')->render($response, 'events.twig');
     });
 
 };

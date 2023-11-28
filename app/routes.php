@@ -34,5 +34,8 @@ return function (App $app) {
     $app->get('/events', function (Request $request, Response $response) {
         return $this->get('view')->render($response, 'events.twig');
     });
+    $app->get('/bts', function (Request $request, Response $response) {
+        return $this->get('view')->render($response, 'bts.twig');
+    });
 
 };

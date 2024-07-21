@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', function () {
     setTimeout(() => {
         let navHeight = document.querySelector('#header').clientHeight;
         Object.assign(document.querySelector('#homeVideo').style, {
-            'height' : `calc(100vh - ${ navHeight - 80 }px)`
+            'min-height' : `calc(100vh - ${ navHeight - 80 }px)`,
+            'height' : 'auto'
         }); 
     }, 1000);
     document.querySelector('.main-home').remove();

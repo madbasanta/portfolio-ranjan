@@ -1200,3 +1200,7 @@ section .container {
 .credits a:hover {
   color: #000;
 }
+
+.footer .social-links a i{
+  font-size: 40px;
+}

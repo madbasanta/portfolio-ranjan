@@ -1,34 +1,58 @@
 // window ready no jquery
+function setVideoHeight()
+{
+    let navHeight = document.querySelector('#header').clientHeight;
+    Object.assign(document.querySelector('#homeVideo').style, {
+        'height': `calc(100vh - ${navHeight - 80}px)`,
+        // 'height' : 'auto'
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('ready');
-    document.querySelector('.main-about').click();
+    // document.querySelector('.main-about').click();
     Object.assign(document.querySelector('#home').style, {
-        'margin-top' : '-100px'
+        'margin-top': '-100px'
     });
     setTimeout(() => {
-        let navHeight = document.querySelector('#header').clientHeight;
-        Object.assign(document.querySelector('#homeVideo').style, {
-            'min-height' : `calc(100vh - ${ navHeight - 80 }px)`,
-            'height' : 'auto'
-        }); 
+        setVideoHeight();
     }, 1000);
-    document.querySelector('.main-home').remove();
 
-    document.querySelectorAll('#navbar .nav-link').forEach(function(element) {
-        element.addEventListener('click', function() {
-            let hash = new URL(this.href).hash;
-            let that = this;
-            if(document.body.querySelectorAll(hash).length === 1) {
-                return;
+    let header = document.getElementById('header');
+    let video = document.querySelector('#homeVideo video');
+    if (video) {
+        if (header) {
+            video.style.top = header.clientHeight + 'px';
+            console.log('setting height')
+        }
+        // on video end which is already in autoplay
+        video.addEventListener('ended', function () {
+            let aboutSection = document.querySelector('#aboutMe');
+            video.play();
+            if (aboutSection) {
+                aboutSection.scrollIntoView({
+                    behavior: 'smooth'
+                });
             }
-            fetch(hash.replace('#', '/')).then(function(response) {
-                return response.text();
-            }).then(function(html) {
-                if(document.body.querySelectorAll(hash).length === 0) {
-                    document.body.insertAdjacentHTML('beforeend', html);
-                }
-                that.click();
-            });
         });
-    });
+    }
+    videoResize();
 });
+
+function videoResize()
+{
+    let homeVideo = document.querySelector('#homeVideo');
+    let video = document.querySelector('#homeVideo video');
+    if (homeVideo.clientWidth < 1024) {
+        homeVideo.style.height = '50vh';
+        video.style.height = '50vh';
+        if (homeVideo.clientWidth < 500) {
+            homeVideo.style.height = '35vh';
+            video.style.height = '35vh';
+        }
+    } else {
+        video.style.height = 'auto';
+        setVideoHeight();
+    }
+}
+
+window.onresize = videoResize;

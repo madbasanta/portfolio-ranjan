@@ -1,11 +1,14 @@
+{% extends "master.twig" %}
+
+{% block content %}
 <!-- ======= Music Video Section ======= -->
-<section id="music-video">
+<section id="music-video" class="section-show">
     {%for item in items%}
     <div class="resume">
         <div class="container">
 
             <div class="section-title">
-                <h2>Music Video</h2>
+                <h2>Music Videos</h2>
                 <p>{{item.title}}</p>
             </div>
 
@@ -27,6 +30,6 @@
         </div>
     </div>
     {%endfor%}
-    {%include 'footer.twig' %}
 </section>
 <!-- End Music Video Section -->
+{% endblock %}

@@ -1,5 +1,8 @@
+{% extends "master.twig" %}
+
+{% block content %}
 <!-- ======= documentry Section ======= -->
-<section id="documentry">
+<section id="documentry" class="section-show">
     {%for item in items%}
     <div class="resume">
         <div class="container">
@@ -27,6 +30,6 @@
         </div>
     </div>
     {%endfor%}
-    {%include 'footer.twig' %}
 </section>
 <!-- End documentry Section -->
+{% endblock %}

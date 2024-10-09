@@ -16,12 +16,31 @@ return function (App $app) {
     });
 
     $app->get('/', function (Request $request, Response $response) {
-        return $this->get('view')->render($response, 'index.twig');
+        return $this->get('view')->render($response, 'home.twig', [
+            'pathInfo' => $request->getUri()->getPath(),
+        ]);
     });
 
     $app->get('/documentry', function (Request $request, Response $response) {
         return $this->get('view')->render($response, 'documentry.twig', [
+            'pathInfo' => $request->getUri()->getPath(),
             'items' => [
+                [
+                    'title' => 'Creative Artist | Lo Williams | Short Documentary',
+                    'youtube' => 'https://www.youtube.com/embed/Kp3lqPRIjGQ?si=Xf2xIShGResaXcvT',
+                    'description' => '
+                        <p>Creative artist is a short documentary where artist express her inner life, thoughts and reflections on life purpose and how she hopes to impact the people through her art. </p>
+                        <p>Explore the journey into the life and artistry of Lo Williams, a visionary creative activist and founder of LoDesignz, in this captivating documentary. Journey through her personal narrative from childhood influences to her impactful role in the artistic community, witness candid moments in her vibrant gallery and delve into the behind-the-scenes of her street art projects. Experience the power of art to inspire change and transcend boundaries in this compelling portrait of resilience and creativity.</p>                        
+                        <p>Directed and Edited By: Ranjan Rimal</p>
+                    '
+                ],
+                [
+                    'title' => 'Lost by Envy',
+                    'youtube' => 'https://www.youtube.com/embed/GhBmjCY7Z9E?si=sfz1dF6IxionKkCJ',
+                    'description' => '
+                        <p>Pressure, depression, self-reflection and self-doubt. These are the themes I explore in this short experimental documentary titled “Lost”. I tried to express the depth of human emotion and action through a vulnerable in-depth look at my situation and emotional thought process. This documentary is a form of therapy for myself and for others.</p>
+                    '
+                ],
                 [
                     'title' => 'MINSTREL QUEST FOR MUSEUM',
                     'youtube' => 'https://www.youtube.com/embed/xDI1AVZtr9g?si=OUCsjJwkr6X05Uph',
@@ -33,35 +52,12 @@ return function (App $app) {
                                         We intend to film the entire journey through different landscapes and travel with them to complete this documentary film and find the answers to their motivation, inspiration, and intention.
                                     </p>'
                 ],
-                [
-                    'title' => 'Lost by Envy',
-                    'youtube' => 'https://www.youtube.com/embed/GhBmjCY7Z9E?si=sfz1dF6IxionKkCJ',
-                    'description' => '
-                        <p>Pressure, depression, self-reflection and self-doubt. These are the themes I explore in this short experimental documentary titled “Lost”. I tried to express the depth of human emotion and action through a vulnerable in-depth look at my situation and emotional thought process. This documentary is a form of therapy for myself and for others.</p>
-                    '
-                ],
-                [
-                    'title' => 'Creative Artist | Lo Williams | Short Documentary',
-                    'youtube' => 'https://www.youtube.com/embed/Kp3lqPRIjGQ?si=Xf2xIShGResaXcvT',
-                    'description' => '
-                        <p>Creative artist is a short documentary where artist express her inner life, thoughts and reflections on life purpose and how she hopes to impact the people through her art. </p>
-                        <p>Explore the journey into the life and artistry of Lo Williams, a visionary creative activist and founder of LoDesignz, in this captivating documentary. Journey through her personal narrative from childhood influences to her impactful role in the artistic community, witness candid moments in her vibrant gallery and delve into the behind-the-scenes of her street art projects. Experience the power of art to inspire change and transcend boundaries in this compelling portrait of resilience and creativity.</p>                        
-                        <p>Directed and Edited By: Ranjan Rimal</p>
-                    '
-                ],
-                [
-                    'title' => '𝐀 𝐁 𝐇 𝐀 𝐒 𝐀 / 𝐒𝐇𝐎𝐑𝐓 𝐅𝐈𝐋𝐌 / 𝟐𝟎𝟐𝟒 / 𝐀𝐁𝐇𝐈𝐒𝐇𝐄𝐊 𝐏𝐀𝐒𝐒𝐈',
-                    'youtube' => "https://www.youtube.com/embed/9Es0JvoyC-0?si=8LeGSOVKhLYIouFf" ,
-                    'description' => '
-                        <p>"ABHASA" is a short Horror/Thriller Film inspired by the multitude of paranormal incidents that have been documented in our contemporary, fast-paced world. These occurrences suggest the existence of an uncharted universe, which serves as the backdrop for my fictional narrative. - by Abhishek Passi & Team.</p>
-                        <p>Cinematographer - Ranjan Rimal</p>
-                    '
-                ]
             ]
         ]);
     });
     $app->get('/music-video', function (Request $request, Response $response) {
         return $this->get('view')->render($response, 'music-video.twig', [
+            'pathInfo' => $request->getUri()->getPath(),
             'items' => [
                 [
                     'title' => 'BOBBY TRIPP - THOTIANA ( Official Music Video )',
@@ -81,6 +77,11 @@ return function (App $app) {
                             are very happy to have this project completed. Rest in paradise our brother Rollerx.
                         </p>
                     '
+                ],
+                [
+                    'title' => 'BOBBY TRIPP - RUSH (Official Music Video)',
+                    'youtube' => 'https://www.youtube.com/embed/EC15yFqJGTc?si=DHGlnSj8cQMWtxM7',
+                    'description' => ' An official Music Video for RUSH is Out Now! SLATT💚'
                 ],
                 [
                     'title' => 'Bishesh - Miss Garchu | Official Music Video | Beats By @TrapSideRecords',
@@ -105,24 +106,42 @@ return function (App $app) {
                             Cinematographer: Azure Blue and Ranjan Rimal
                         </p>'
                 ],
+            ]
+        ]);
+    });
+    $app->get('/short-film', function(Request $request, Response $response) {
+        return $this->get('view')->render($response, 'shortfilm.twig', [
+            'pathInfo' => $request->getUri()->getPath(),
+            'items' => [
                 [
-                    'title' => 'BOBBY TRIPP - RUSH (Official Music Video)',
-                    'youtube' => 'https://www.youtube.com/embed/EC15yFqJGTc?si=DHGlnSj8cQMWtxM7',
-                    'description' => ' An official Music Video for RUSH is Out Now! SLATT💚'
-                ]
+                    'title' => '𝐀 𝐁 𝐇 𝐀 𝐒 𝐀 / 𝐒𝐇𝐎𝐑𝐓 𝐅𝐈𝐋𝐌 / 𝟐𝟎𝟐𝟒 / 𝐀𝐁𝐇𝐈𝐒𝐇𝐄𝐊 𝐏𝐀𝐒𝐒𝐈',
+                    'youtube' => "https://www.youtube.com/embed/9Es0JvoyC-0?si=8LeGSOVKhLYIouFf" ,
+                    'description' => '
+                        <p>"ABHASA" is a short Horror/Thriller Film inspired by the multitude of paranormal incidents that have been documented in our contemporary, fast-paced world. These occurrences suggest the existence of an uncharted universe, which serves as the backdrop for my fictional narrative. - by Abhishek Passi & Team.</p>
+                        <p>Cinematographer - Ranjan Rimal</p>
+                    '
+                ],
             ]
         ]);
     });
     $app->get('/commercials', function (Request $request, Response $response) {
-        return $this->get('view')->render($response, 'commercials.twig');
+        return $this->get('view')->render($response, 'commercials.twig', [
+            'pathInfo' => $request->getUri()->getPath(),
+        ]);
     });
     $app->get('/travel', function (Request $request, Response $response) {
-        return $this->get('view')->render($response, 'travel.twig');
+        return $this->get('view')->render($response, 'travel.twig', [
+            'pathInfo' => $request->getUri()->getPath(),
+        ]);
     });
     $app->get('/events', function (Request $request, Response $response) {
-        return $this->get('view')->render($response, 'events.twig');
+        return $this->get('view')->render($response, 'events.twig', [
+            'pathInfo' => $request->getUri()->getPath(),
+        ]);
     });
     $app->get('/bts', function (Request $request, Response $response) {
-        return $this->get('view')->render($response, 'bts.twig');
+        return $this->get('view')->render($response, 'bts.twig', [
+            'pathInfo' => $request->getUri()->getPath(),
+        ]);
     });
 };

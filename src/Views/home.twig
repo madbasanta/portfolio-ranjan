@@ -1,5 +1,8 @@
+{% extends "master.twig" %}
+
+{% block content %}
 <!-- ======= Home Section ======= -->
-<section id="home" class="about" style="padding-bottom: 0;">
+<section id="home" class="about section-show" style="padding-bottom: 0;">
 
   <!-- ======= About Me ======= -->
   <div class="about-me">
@@ -8,64 +11,74 @@
     <div class="row">
       <div class="col-lg-12">
         <div style="height: 100vh;width: 100vw;" id="homeVideo">
-
-
-          <div id="aboutMe" style="margin-top: 100px;">
-            <!-- ======= About Me ======= -->
-            <div class="about-me container">
-
-              <div class="section-title">
-                <h2>About</h2>
-                <p>Learn more about me</p>
-              </div>
-
-              <div class="row">
-                <div class="col-lg-4" data-aos="fade-right">
-                  <img src="/assets/img/me.jpg" class="img-fluid" alt="" style="width: 85%;">
-                </div>
-                <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-                  <h3>Filmmaker/Visualstoryteller</h3>
-                  <p>
-                    I am an experienced cinematographer and videographer with extensive knowledge in film and media
-                    production processes. My proficiency spans across various facets of the field, including camera
-                    operation, visual storytelling, and lighting techniques. I have honed my skills in post-production
-                    processes, ensuring seamless technical support, meticulous equipment maintenance, and efficient
-                    production management. My dedication to continuous learning has also kept me updated with the latest
-                    industry trends and technologies.
-                  </p>
-                  <p>
-                    In my role, I serve as a primary contact to support producers, directors, crew members, and clients
-                    throughout the creative process. My expertise allows me to provide effective technical solutions and
-                    facilitate smooth communication among all parties involved. I pride myself on being a reliable
-                    resource, ensuring that every aspect of the production runs smoothly and efficiently. By fostering a
-                    collaborative environment, I help teams achieve their creative vision with precision and
-                    professionalism.
-                  </p>
-                  <p>
-                    Moreover, I have a strong background in social media marketing campaigns, which enhances my ability
-                    to contribute to the promotion and outreach of film and media projects. My comprehensive
-                    understanding of both the technical and creative sides of the industry enables me to deliver
-                    high-quality results that meet the diverse needs of my clients and collaborators. I am passionate
-                    about storytelling and dedicated to bringing compelling visual narratives to life, which drives my
-                    commitment to excellence in every project.
-                  </p>
-                </div>
-              </div>
-            </div><!-- End About Me -->
-            
-            {%include 'footer.twig' %}
-
-          </div>
-
-          <video width="100%" height="auto" autoplay loop muted style="position: absolute;top: 0;left: 0;z-index: -1;">
+          <video class="mt-3 mt-lg-0" width="100%" height="auto" autoplay muted style="position: absolute;top: 0;left: 0;z-index: -1;">
             <source src="/assets/teaser.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
+        </div>
+      </div>
+      <div class="col-lg-12">
+
+        <div id="aboutMe" class=""
+          style="margin-top: 100px;">
+          <!-- ======= About Me ======= -->
+          <div class="about-me container">
+            <div class="row">
+              <div class="col-md-4 mb-3">
+                <img src="/assets/img/home/1.jpeg" alt="lost" class="img-fluid mt-5">
+              </div>
+              <div class="col-md-4 mb-3">
+                <img src="/assets/img/home/2.png" alt="firm festival winner" class="img-fluid mt-5">
+              </div>
+              <div class="col-md-4 mb-3">
+                <img src="/assets/img/home/3.jpg" alt="coventry phoenix" class="img-fluid">
+              </div>
+              <div class="col-md-4 mb-3">
+                <img src="/assets/img/home/4.jpg" alt="bts" class="img-fluid">
+              </div>
+              <div class="col-md-4 mb-3">
+                <img src="/assets/img/home/5.jpg" alt="bts2" class="img-fluid">
+              </div>
+              <div class="col-md-4 mb-3">
+                <img src="/assets/img/home/6.jpg" alt="creative artist" class="img-fluid">
+              </div>
+            </div>
+          </div>
+          <div class="about-me container">
+
+            <div class="section-title">
+              <!-- <h2>About</h2> -->
+              <p>about me</p>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-5" data-aos="fade-right">
+                <img src="/assets/img/profile.jpg" class="img-fluid" alt="">
+              </div>
+              <div class="col-lg-7 pt-4 pt-lg-0 content" data-aos="fade-left">
+                <h3>Cinematographer/Post-production</h3>
+                <p>
+                  I am an experienced cinematographer and videographer with extensive expertise in film and media
+                  production processes. I am proficient in camera operation, visual storytelling, lighting techniques,
+                  and post-production processes, including technical support, equipment maintenance, and production
+                  management. I serve as the primary contact for supporting producers, directors, crew members, and
+                  clients, offering creative solutions, technical expertise, and guidance on social media marketing
+                  campaigns.
+                </p>
+              </div>
+            </div>
+          </div><!-- End About Me -->
+
+          {%include 'footer.twig' %}
+
+          <br><br>
 
         </div>
+
       </div>
     </div>
 
   </div><!-- End About Me -->
 
 </section><!-- End Home Section -->
+{% endblock %}

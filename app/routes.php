@@ -26,21 +26,24 @@ return function (App $app) {
             'pathInfo' => $request->getUri()->getPath(),
             'items' => [
                 [
-                    'title' => 'Creative Artist | Lo Williams | Short Documentary',
-                    'youtube' => 'https://www.youtube.com/embed/Kp3lqPRIjGQ?si=Xf2xIShGResaXcvT',
-                    'description' => '
-                        <p>Creative artist is a short documentary where artist express her inner life, thoughts and reflections on life purpose and how she hopes to impact the people through her art. </p>
-                        <p>Explore the journey into the life and artistry of Lo Williams, a visionary creative activist and founder of LoDesignz, in this captivating documentary. Journey through her personal narrative from childhood influences to her impactful role in the artistic community, witness candid moments in her vibrant gallery and delve into the behind-the-scenes of her street art projects. Experience the power of art to inspire change and transcend boundaries in this compelling portrait of resilience and creativity.</p>                        
-                        <p>Directed and Edited By: Ranjan Rimal</p>
-                    '
-                ],
-                [
                     'title' => 'Lost by Envy',
                     'youtube' => 'https://www.youtube.com/embed/GhBmjCY7Z9E?si=sfz1dF6IxionKkCJ',
                     'description' => '
                         <p>Pressure, depression, self-reflection and self-doubt. These are the themes I explore in this short experimental documentary titled “Lost”. I tried to express the depth of human emotion and action through a vulnerable in-depth look at my situation and emotional thought process. This documentary is a form of therapy for myself and for others.</p>
+                        <p>Cinematography by Ranjan Rimal</p>
                     '
                 ],
+                
+                [
+                    'title' => 'Creative Artist - Lo Williams | Short documentary',
+                    'youtube' => 'https://www.youtube.com/embed/lifAGcNHLzQ?si=28ISO7Up1DFIB9Cr',
+                    'description' => '
+                        <p>Creative artist is a short documentary where artist express her inner life, thoughts and reflections on life purpose and how she hopes to impact the people through her art. </p>
+                        <p>Explore the journey into the life and artistry of Lo Williams, a visionary creative activist and founder of LoDesignz. Journey through her personal narrative from childhood influences to her impactful role in the artistic community, witness candid moments in her vibrant gallery and delve into the behind-the-scenes of her street art projects. Experience the power of art to inspire change and transcend boundaries in this compelling portrait of resilience and creativity.</p>                        
+                        <p>Directed and Edited by Ranjan Rimal</p>
+                    '
+                ],
+                
                 [
                     'title' => 'MINSTREL QUEST FOR MUSEUM',
                     'youtube' => 'https://www.youtube.com/embed/xDI1AVZtr9g?si=OUCsjJwkr6X05Uph',
@@ -59,11 +62,29 @@ return function (App $app) {
         return $this->get('view')->render($response, 'music-video.twig', [
             'pathInfo' => $request->getUri()->getPath(),
             'items' => [
+                
+                [
+                    'title' => 'AV- Dastaan (Official Music Video) Ft. ‪@_EnvyD‬ | Guitar by Ameed Fardeen | Prod. by AV',
+                    'youtube' => 'https://www.youtube.com/embed/Hfy182ZTiCo?si=eYZm2C5pkUVtBCIZ',
+                    'description' => '
+                        <p>Official music video</p>
+                        <p>
+                      
+                        Cinematographer/Editor/Colorist: Ranjan Rimal
+                      
+                        </p>
+                    '
+                ],
                 [
                     'title' => 'BOBBY TRIPP - THOTIANA ( Official Music Video )',
                     'youtube' => 'https://www.youtube.com/embed/kG2XhNxsxtA?si=HBk5H6k5O-npTIVS',
                     'description' => '
                         <p>Bobby Tripp\'s debut official music video for THOTIANA is Out Now! SLATT💚</p>
+                        <p>
+                      
+                        Cinematography by Ranjan Rimal
+                      
+                        </p>
                     '
                 ],
                 [
@@ -113,14 +134,25 @@ return function (App $app) {
         return $this->get('view')->render($response, 'shortfilm.twig', [
             'pathInfo' => $request->getUri()->getPath(),
             'items' => [
+                
+                [
+                    'title' => 'The Blackwood House – Where Fear Feels Real / Short Film',
+                    'youtube' => "https://www.youtube.com/embed/Zzl4D8aJ3S8?si=rFmgS60c_GUZQWOj" ,
+                    'description' => '
+                        <p>"The Blackwood House - A journey into the Mind, where reality Unravels and the walls Close in. A haunting exploration. where the Lines between Fear & Truth -- BLURS.</p>
+                        <p>Cinematographer - Ranjan Rimal</p>
+                    '
+                ],
+                
                 [
                     'title' => '𝐀 𝐁 𝐇 𝐀 𝐒 𝐀 / 𝐒𝐇𝐎𝐑𝐓 𝐅𝐈𝐋𝐌 / 𝟐𝟎𝟐𝟒 / 𝐀𝐁𝐇𝐈𝐒𝐇𝐄𝐊 𝐏𝐀𝐒𝐒𝐈',
                     'youtube' => "https://www.youtube.com/embed/9Es0JvoyC-0?si=8LeGSOVKhLYIouFf" ,
                     'description' => '
                         <p>"ABHASA" is a short Horror/Thriller Film inspired by the multitude of paranormal incidents that have been documented in our contemporary, fast-paced world. These occurrences suggest the existence of an uncharted universe, which serves as the backdrop for my fictional narrative. - by Abhishek Passi & Team.</p>
-                        <p>Cinematographer - Ranjan Rimal</p>
+                        <p>Cinematographer by Ranjan Rimal</p>
                     '
                 ],
+                
             ]
         ]);
     });

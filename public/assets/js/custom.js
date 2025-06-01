@@ -43,24 +43,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     videoResize();
 
-
-    let player = videojs('mainVideo', {
-        autoplay: false,
-        controls: true,
-        // fluid: true,
-        responsive: true,
-        height: 500,
-    });
-
-    document.querySelectorAll('.video-item').forEach(item => {
-        item.addEventListener('click', () => {
-            const src = item.dataset.src;
-            const poster = item.dataset.poster;
-            player.poster(poster);
-            player.src({ type: 'video/mp4', src });
-            player.play();
-        });
-    });
 });
 
 function videoResize() {

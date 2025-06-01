@@ -1,8 +1,11 @@
 // window ready no jquery
-function setVideoHeight()
-{
+function setVideoHeight() {
     let navHeight = document.querySelector('#header').clientHeight;
-    Object.assign(document.querySelector('#homeVideo').style, {
+    let homeVideo = document.querySelector('#homeVideo');
+    if (!homeVideo) {
+        return;
+    }
+    Object.assign(homeVideo.style, {
         'height': `calc(100vh - ${navHeight - 80}px)`,
         // 'height' : 'auto'
     });
@@ -10,9 +13,12 @@ function setVideoHeight()
 
 document.addEventListener('DOMContentLoaded', function () {
     // document.querySelector('.main-about').click();
-    Object.assign(document.querySelector('#home').style, {
-        'margin-top': '-100px'
-    });
+    if (document.querySelector('#home')) {
+
+        Object.assign(document.querySelector('#home').style, {
+            'margin-top': '-100px'
+        });
+    }
     setTimeout(() => {
         setVideoHeight();
     }, 1000);
@@ -36,11 +42,32 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
     videoResize();
+
+
+    let player = videojs('mainVideo', {
+        autoplay: false,
+        controls: true,
+        // fluid: true,
+        responsive: true,
+        height: 500,
+    });
+
+    document.querySelectorAll('.video-item').forEach(item => {
+        item.addEventListener('click', () => {
+            const src = item.dataset.src;
+            const poster = item.dataset.poster;
+            player.poster(poster);
+            player.src({ type: 'video/mp4', src });
+            player.play();
+        });
+    });
 });
 
-function videoResize()
-{
+function videoResize() {
     let homeVideo = document.querySelector('#homeVideo');
+    if (!homeVideo) {
+        return;
+    }
     let video = document.querySelector('#homeVideo video');
     if (homeVideo.clientWidth < 1024) {
         homeVideo.style.height = '50vh';
@@ -56,3 +83,4 @@ function videoResize()
 }
 
 window.onresize = videoResize;
+

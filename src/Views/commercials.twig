@@ -68,19 +68,45 @@
                     <source src="${videoSrc}" type="video/mp4" />
                     <p>Your browser does not support the video tag.</p>
                 `;
-
+                
+                // Initialize Video.js player
                 let player = videojs(videoPlayer, {
                     autoplay: false,
                     controls: true,
                     fluid: false,
                     responsive: true,
+                    controlBar: {
+                        playToggle: true,
+                        volumePanel: true,
+                        progressControl: true,
+                        remainingTimeDisplay: true,
+                        fullscreenToggle: true
+                    }
                 });
 
                 // Add click handler
                 card.addEventListener('click', function() {
-                    player.play();
+                    // Toggle play/pause
+                    if (videoPlayer.parentElement.classList.contains('d-none')) {
+                        player.play();
+
+                        videoCards.forEach(card => {
+                            if (card !== this) {
+                                let p = card.querySelector('.video-player>video');
+                                videojs(p).pause();
+                                
+                            }
+                        });
+                    }
+                    // Toggle video visibility
                     videoPlayer.parentElement.classList.remove('d-none');
+                    
                 });
+
+                // Add event listener for video end
+                // player.on('ended', function() {
+                //     videoPlayer.parentElement.classList.add('d-none');
+                // });
             });
         });
         </script>

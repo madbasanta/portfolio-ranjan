@@ -14,7 +14,7 @@
             <div class="row">
                 <!-- Left: Video Player -->
                 <div class="col-md-9">
-                    <video id="mainVideo" class="video-js" controls preload="none" poster="/assets/img/me.jpg"
+                    <video id="mainVideo" class="video-js" controls width="auto" height="600px" preload="none" poster="/assets/img/me.jpg"
                         data-setup='{}'>
                         <source src="/assets/Bishesh-BTS.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
@@ -24,21 +24,17 @@
                 <!-- Right: Playlist -->
                 <div class="col-md-3">
                     <div class="video-list d-flex flex-column gap-2">
-                        <div class="video-item mb-2 rounded shadow-sm cursor-pointer" data-src="/assets/Bishesh-BTS.mp4"
-                            data-poster="https://picsum.photos/200/300" style="width: 100%;">
-                            <img src="https://picsum.photos/200/300" alt="Video 2" class="rounded w-100"
+                        {%for item in items%}
+                        <div class="video-item mb-2 rounded shadow-sm cursor-pointer" data-src="{{item.video}}" style="width: 100%;"
+                        {% if item.poster %}
+                            data-poster="{{item.poster}}"
+                            {% endif %} >
+                            
+                            <img src="{{item.poster}}" alt="Video 2" class="rounded w-100"
                                 style="aspect-ratio: 16/9; object-fit: cover;">
+                            
                         </div>
-                        <div class="video-item mb-2 rounded shadow-sm cursor-pointer" data-src="/assets/BTS-Bobby-Tripp-Thotiana.mp4"
-                            data-poster="https://picsum.photos/200/300" style="width: 100%;">
-                            <img src="https://picsum.photos/200/300" alt="Video 3" class="rounded w-100"
-                                style="aspect-ratio: 16/9; object-fit: cover;">
-                        </div>
-                        <div class="video-item mb-2 rounded shadow-sm cursor-pointer" data-src="/assets/teaser.mp4"
-                            data-poster="https://picsum.photos/200/300" style="width: 100%;">
-                            <img src="https://picsum.photos/200/300" alt="Video 4" class="rounded w-100"
-                                style="aspect-ratio: 16/9; object-fit: cover;">
-                        </div>
+                        {%endfor%}
                     </div>
                 </div>
             </div>

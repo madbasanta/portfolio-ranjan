@@ -157,8 +157,24 @@ return function (App $app) {
         ]);
     });
     $app->get('/commercials', function (Request $request, Response $response) {
+
+        $files = glob(__DIR__ . '/../public/assets/commercials/*.{mp4}', GLOB_BRACE);
+
+        $items = [];
+        foreach ($files as $file) {
+            $filename = basename($file);
+            $poster = '/assets/commercials/posters/' . pathinfo($filename, PATHINFO_FILENAME) . '.jpg';
+            $items[] = [
+                'title' => pathinfo($filename, PATHINFO_FILENAME),
+                'video' => '/assets/commercials/' . $filename,
+                'description' => 'Commercial video: ' . $filename,
+                'poster' => file_exists(__DIR__ . '/../public' . $poster) ? $poster : '',
+            ];
+        }
+
         return $this->get('view')->render($response, 'commercials.twig', [
             'pathInfo' => $request->getUri()->getPath(),
+            'items' => $items,
         ]);
     });
     $app->get('/travel', function (Request $request, Response $response) {

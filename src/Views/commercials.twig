@@ -81,27 +81,54 @@
                         progressControl: true,
                         remainingTimeDisplay: true,
                         fullscreenToggle: true
+                    },
+                    techOrder: ['html5'],
+                    playbackRates: [0.5, 1, 1.5, 2],
+                    preload: 'metadata',
+                    width: '100%',
+                    height: '100%',
+                    controls: true,
+                    sources: [{
+                        src: videoSrc,
+                        type: 'video/mp4',
+                        quality: 'low'
+                    }],
+                    html5: {
+                        nativeControlsForTouch: true,
+                        vhs: {
+                            overrideNative: false
+                        }
                     }
                 });
 
                 // Add click handler
-                card.addEventListener('click', function() {
+                const handleVideoClick = function(e) {
+                    // Prevent default behavior on iPhone
+                    e.preventDefault();
+                    e.stopPropagation();
+
                     // Toggle play/pause
                     if (videoPlayer.parentElement.classList.contains('d-none')) {
-                        player.play();
+                        // For iPhone, we need to ensure the video is visible before playing
+                        videoPlayer.parentElement.classList.remove('d-none');
+                        
+                        // Small delay to ensure visibility before playing
+                        setTimeout(() => {
+                            player.play();
+                        }, 100);
 
                         videoCards.forEach(card => {
                             if (card !== this) {
                                 let p = card.querySelector('.video-player>video');
                                 videojs(p).pause();
-                                
                             }
                         });
                     }
-                    // Toggle video visibility
-                    videoPlayer.parentElement.classList.remove('d-none');
-                    
-                });
+                };
+
+                // Add click/touch event listeners
+                card.addEventListener('click', handleVideoClick);
+                card.addEventListener('touchstart', handleVideoClick, { passive: false });
 
                 // Add event listener for video end
                 // player.on('ended', function() {

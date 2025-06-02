@@ -54,23 +54,28 @@
         
         </style>
 
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+
         <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const videoCards = document.querySelectorAll('.video-card');
-            
-            videoCards.forEach(card => {
-                const videoPlayer = card.querySelector('.video-player');
-                const videoSrc = card.getAttribute('data-src');
-                const poster = card.getAttribute('data-poster');
+        $(document).ready(function() {
+            $('.video-card').each(function() {
+                const $card = $(this);
+                const $videoPlayer = $card.find('video.video-player');
+                const videoSrc = $card.attr('data-src');
+                const poster = $card.attr('data-poster');
                 
                 // Initialize video player
-                videoPlayer.innerHTML = `
+                $videoPlayer.html(`
                     <source src="${videoSrc}" type="video/mp4" />
                     <p>Your browser does not support the video tag.</p>
-                `;
+                `);
+
+                console.log(videoSrc);
+                console.log(poster);
+                
                 
                 // Initialize Video.js player
-                let player = videojs(videoPlayer, {
+                const player = videojs($videoPlayer.get(0), {
                     autoplay: false,
                     controls: true,
                     fluid: false,
@@ -101,39 +106,31 @@
                     }
                 });
 
-                // Add click handler
-                const handleVideoClick = function(e) {
-                    // Prevent default behavior on iPhone
+                // Handle video click
+                $card.on('click touchstart', function(e) {
                     e.preventDefault();
                     e.stopPropagation();
 
-                    // Toggle play/pause
-                    if (videoPlayer.parentElement.classList.contains('d-none')) {
-                        // For iPhone, we need to ensure the video is visible before playing
-                        videoPlayer.parentElement.classList.remove('d-none');
+                    console.log('clicked',$videoPlayer.parent().hasClass('d-none'));
+                    
+
+                    if ($videoPlayer.parent().hasClass('d-none')) {
+                        $videoPlayer.parent().removeClass('d-none');
                         
-                        // Small delay to ensure visibility before playing
+                        // Small delay for visibility
                         setTimeout(() => {
                             player.play();
                         }, 100);
-
-                        videoCards.forEach(card => {
-                            if (card !== this) {
-                                let p = card.querySelector('.video-player>video');
-                                videojs(p).pause();
+                        
+                        // Pause other videos
+                        $('.video-card').not($card).each(function() {
+                            const otherPlayer = $(this).find('.video-player').get(0);
+                            if (otherPlayer) {
+                                videojs(otherPlayer).pause();
                             }
                         });
                     }
-                };
-
-                // Add click/touch event listeners
-                card.addEventListener('click', handleVideoClick);
-                card.addEventListener('touchstart', handleVideoClick, { passive: false });
-
-                // Add event listener for video end
-                // player.on('ended', function() {
-                //     videoPlayer.parentElement.classList.add('d-none');
-                // });
+                });
             });
         });
         </script>

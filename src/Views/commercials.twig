@@ -1,140 +1,58 @@
 {% extends "master.twig" %}
 
 {% block content %}
-<!-- ======= Commercials Section ======= -->
-<section id="commercials" class="section-show py-5 bg-light">
-    <div class="container">
-        <div class="section-title text-center mb-5">
-            <h2 class="display-4 fw-bold text-primary">Commercials</h2>
-            <p class="lead text-muted">Social Media Content</p>
-        </div>
+	<!-- ======= Commercials Section ======= -->
+	<section id="commercials" class="section-show py-5 bg-light">
+		<div class="container">
+			<div class="section-title text-center mb-5">
+				<h2 class="display-4 fw-bold text-primary">Commercials</h2>
+				<p class="lead text-muted">Social Media Content</p>
+			</div>
 
-        <!-- Video Grid -->
-        <div class="row g-4">
-            {% for item in items %}
-            <div class="col-md-4 col-sm-6 mb-3">
-                <div class="video-card position-relative rounded overflow-hidden" style="cursor:pointer;" 
-                     data-src="{{item.video}}"
-                     data-poster="{{item.poster}}">
-                    <div class="video-content">
-                        <img src="{{item.poster}}" 
-                             alt="{{item.title}}" 
-                             class="w-100" 
-                             style="aspect-ratio: 16/9; object-fit: cover;">
-                        
-                    </div>
-                    <video class="video-player d-none video-js vjs-big-play-centered" controls preload="none" height="100%">
-                        <source src="" type="video/mp4" />
-                        <p>Your browser does not support the video tag.</p>
-                    </video>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
+			<!-- Video Grid -->
+			<div class="row g-4">
+				{% for item in items %}
+					<div class="col-md-4 col-sm-6 mb-3">
+						<div class="video-card" style="aspect-ratio: 16/9; object-fit: cover;">
+							<video class="video-player video-js vjs-big-play-centered" controls preload="none" height="100px" width="100px" poster="{{item.poster}}">
+								<source src="{{item.video}}" type="video/mp4"/>
+								<p>Your browser does not support the video tag.</p>
+							</video>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
 
-        <style>
-        .video-card {
-            transition: transform 0.3s ease;
-            height: 100%;
-        }
-        
-        .video-content {
-            height: 100%;
-            width: 100%;
-        }
-        
-        .video-player {
-            width: 100% !important;
-            height: 100% !important;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 10;
-        }
-        
-        </style>
+			<style>
+				.video-card {
+					transition: transform 0.3s ease;
+					height: 100%;
+					position: relative;
+				}
 
-        <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+				.video-player {
+					width: 100% !important;
+					height: 100% !important;
+					position: absolute;
+					top: 0;
+					left: 0;
+					z-index: 10;
+				}
+			</style>
 
-        <script>
-        $(document).ready(function() {
-            $('.video-card').each(function() {
-                const $card = $(this);
-                const $videoPlayer = $card.find('video.video-player');
-                const videoSrc = $card.attr('data-src');
-                const poster = $card.attr('data-poster');
-                
-                // Initialize video player
-                $videoPlayer.html(`
-                    <source src="${videoSrc}" type="video/mp4" />
-                    <p>Your browser does not support the video tag.</p>
-                `);
+			<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
 
-                console.log(videoSrc);
-                console.log(poster);
-                
-                
-                // Initialize Video.js player
-                const player = videojs($videoPlayer.get(0), {
-                    autoplay: false,
-                    controls: true,
-                    fluid: false,
-                    responsive: true,
-                    controlBar: {
-                        playToggle: true,
-                        volumePanel: true,
-                        progressControl: true,
-                        remainingTimeDisplay: true,
-                        fullscreenToggle: true
-                    },
-                    techOrder: ['html5'],
-                    playbackRates: [0.5, 1, 1.5, 2],
-                    preload: 'metadata',
-                    width: '100%',
-                    height: '100%',
-                    controls: true,
-                    sources: [{
-                        src: videoSrc,
-                        type: 'video/mp4',
-                        quality: 'low'
-                    }],
-                    html5: {
-                        nativeControlsForTouch: true,
-                        vhs: {
-                            overrideNative: false
-                        }
-                    }
-                });
+			<script>
+				$(document).ready(function () {
 
-                // Handle video click
-                $card.on('click touchstart', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
+$('.video-player').each(function () {
+var player = videojs(this);
+// player.play();
+});
 
-                    console.log('clicked',$videoPlayer.parent().hasClass('d-none'));
-                    
-
-                    if ($videoPlayer.parent().hasClass('d-none')) {
-                        $videoPlayer.parent().removeClass('d-none');
-                        
-                        // Small delay for visibility
-                        setTimeout(() => {
-                            player.play();
-                        }, 100);
-                        
-                        // Pause other videos
-                        $('.video-card').not($card).each(function() {
-                            const otherPlayer = $(this).find('.video-player').get(0);
-                            if (otherPlayer) {
-                                videojs(otherPlayer).pause();
-                            }
-                        });
-                    }
-                });
-            });
-        });
-        </script>
-    </div>
-</section>
-<!-- End Commercials Section -->
+});
+			</script>
+		</div>
+	</section>
+	<!-- End Commercials Section -->
 {% endblock %}

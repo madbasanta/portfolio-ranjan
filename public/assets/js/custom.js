@@ -1,12 +1,14 @@
 // window ready no jquery
 function setVideoHeight() {
+    console.log('setVideoHeight called');
+    
     let navHeight = document.querySelector('#header').clientHeight;
-    let homeVideo = document.querySelector('#homeVideo');
+    let homeVideo = document.querySelector('#homeVideo video');
     if (!homeVideo) {
         return;
     }
     Object.assign(homeVideo.style, {
-        'height': `calc(100vh - ${navHeight - 80}px)`,
+        'height': `calc(100vh - ${navHeight}px)`,
         // 'height' : 'auto'
     });
 }
@@ -20,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
     setTimeout(() => {
-        setVideoHeight();
+        // setVideoHeight();
     }, 1000);
 
     let header = document.getElementById('header');
@@ -28,7 +30,6 @@ document.addEventListener('DOMContentLoaded', function () {
     if (video) {
         if (header) {
             video.style.top = header.clientHeight + 'px';
-            console.log('setting height')
         }
         // on video end which is already in autoplay
         video.addEventListener('ended', function () {

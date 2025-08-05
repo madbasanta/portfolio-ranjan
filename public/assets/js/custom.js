@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let video = document.querySelector('#homeVideo video');
     if (video) {
         if (header) {
-            video.style.top = header.clientHeight + 'px';
+            video.style.top = '-25px';
             console.log('setting height')
         }
         // on video end which is already in autoplay

@@ -30,7 +30,7 @@ return function (App $app) {
                     'youtube' => 'https://www.youtube.com/embed/GhBmjCY7Z9E?si=sfz1dF6IxionKkCJ',
                     'description' => '
                         <p>Pressure, depression, self-reflection and self-doubt. These are the themes I explore in this short experimental documentary titled “Lost”. I tried to express the depth of human emotion and action through a vulnerable in-depth look at my situation and emotional thought process. This documentary is a form of therapy for myself and for others.</p>
-                        <p>Cinematography by Ranjan Rimal</p>
+                        <p><b>Role: Cinematographer which was nominated and won “Best Documentary” award at the Coventry Phoenix Film Festival 2024</b></p>
                     '
                 ],
                 
@@ -40,7 +40,17 @@ return function (App $app) {
                     'description' => '
                         <p>Creative artist is a short documentary where artist express her inner life, thoughts and reflections on life purpose and how she hopes to impact the people through her art. </p>
                         <p>Explore the journey into the life and artistry of Lo Williams, a visionary creative activist and founder of LoDesignz. Journey through her personal narrative from childhood influences to her impactful role in the artistic community, witness candid moments in her vibrant gallery and delve into the behind-the-scenes of her street art projects. Experience the power of art to inspire change and transcend boundaries in this compelling portrait of resilience and creativity.</p>                        
-                        <p>Directed and Edited by Ranjan Rimal</p>
+                        <p><b>Role: Director|Editor|Colorist</b></p>
+                    '
+                ],
+                
+                [
+                    'title' => 'poetic documentary',
+                    'youtube' => 'https://www.youtube.com/embed/ku0CUEha3DU',
+                    'description' => '
+                        <p>Creative artist is a short documentary where artist express her inner life, thoughts and reflections on life purpose and how she hopes to impact the people through her art. </p>
+                        <p>I am creating my own creative path. In this journey, I am wondering and asking questions to myself about creativity. These questions have been swirling in my mind, leaving me confused and one day I wondered.....if my confusion itself is a form of creativity? So to express my questions and doubts creatively and produce meaningful work I have created a one-minute poetic documentary that captures my personal feelings of confusion and wandering thoughts.</p>                        
+                        <p><b>Role: Director|Cinematographer|Editor</b></p>
                     '
                 ],
                 
@@ -53,7 +63,9 @@ return function (App $app) {
                                         We Saugat Upreti (le. la), Nepal-based Artist and Curator at project Naadhe, and Ranjan Rimal (Filmmaker) have embarked on a journey of a musical documentary film of the Gandharva village located in Kechana, Jhapa, Indian Border. <br><br>
                                         The story of the musical community\'s quest to build a tiny museum - to establish their pastoral cultural essence and advocate cultural dignity. The battalion of minstrels on a relentless journey from village to village, public administration to political authorities to build a museum. <br><br>
                                         We intend to film the entire journey through different landscapes and travel with them to complete this documentary film and find the answers to their motivation, inspiration, and intention.
+                                          <p><b>Role: Cinematographer</b></p>
                                     </p>'
+                                  
                 ],
             ]
         ]);
@@ -67,24 +79,28 @@ return function (App $app) {
                     'title' => 'AV- Dastaan (Official Music Video) Ft. ‪@_EnvyD‬ | Guitar by Ameed Fardeen | Prod. by AV',
                     'youtube' => 'https://www.youtube.com/embed/Hfy182ZTiCo?si=eYZm2C5pkUVtBCIZ',
                     'description' => '
-                        <p>Official music video</p>
-                        <p>
-                      
-                        Cinematographer/Editor/Colorist: Ranjan Rimal
-                      
-                        </p>
+                        <p>Dastaan Official Music Video 2025</p>
+                        <p><b>Role: Cinematographer|Editor|Colorist</b></p>
                     '
                 ],
+                
+                [
+                    'title' => 'Kalki - River Flow (Official Music Video 2025)',
+                    'youtube' => 'https://www.youtube.com/embed/tN1Tco0ArJc?si=bgw3LhcJraPIklc3',
+                    'description' => '
+                        <p>
+                           This music video to raise awareness about the Rally for Rivers and the Cauvery Calling movement initiated by Sadhguru and the Isha Foundation. This initiative serves as a catalyst for global awareness on river revitalization. Cauvery Calling is not just a campaign; it’s a generational commitment to celebrating life and restoring our rivers, soil, and agriculture—the greatest legacy we can leave for future generations. Join us in this movement. Let’s make the Cauvery flow again, along with all our rivers.
+                        </p>
+                        <p><b>Role: Directed/Shot/Edited</b></p>
+                    '
+                ],
+                
                 [
                     'title' => 'BOBBY TRIPP - THOTIANA ( Official Music Video )',
                     'youtube' => 'https://www.youtube.com/embed/kG2XhNxsxtA?si=HBk5H6k5O-npTIVS',
                     'description' => '
                         <p>Bobby Tripp\'s debut official music video for THOTIANA is Out Now! SLATT💚</p>
-                        <p>
-                      
-                        Cinematography by Ranjan Rimal
-                      
-                        </p>
+                        <p><b>Role: Cinematographer</b></p>
                     '
                 ],
                 [
@@ -93,22 +109,18 @@ return function (App $app) {
                     'description' => '
                         <p>
                             Official Music Video of the First Song From Album "GYAN GATI" | 2022 <br>
-                            This collab of Vyoma & Dong was initiated by our beloved Rollerx & Birendra Keshari
-                            (MadhesiBeats). We
-                            are very happy to have this project completed. Rest in paradise our brother Rollerx.
+                            This collab of Vyoma & Dong.
                         </p>
+                        <p><b>Role: Cinematographer</b></p>
                     '
                 ],
-                [
-                    'title' => 'BOBBY TRIPP - RUSH (Official Music Video)',
-                    'youtube' => 'https://www.youtube.com/embed/EC15yFqJGTc?si=DHGlnSj8cQMWtxM7',
-                    'description' => ' An official Music Video for RUSH is Out Now! SLATT💚'
-                ],
+                
                 [
                     'title' => 'Bishesh - Miss Garchu | Official Music Video | Beats By @TrapSideRecords',
                     'youtube' => 'https://www.youtube.com/embed/AQFRHNEFUSw?si=SEfoc4XUSOzYDH0t',
                     'description' => ' <p>
-                            BISHESH - MISS GARCHU
+                            Bishesh - Miss Garchu | Official Music Video | Beats By @TrapSideRecords
+                            <p><b>Role: Cinematographer</b></p>
                         </p>
                     '
                 ],
@@ -116,7 +128,8 @@ return function (App $app) {
                     'title' => 'BISHESH- YO MERO THAU (OFFICIAL MUSIC VIDEO)',
                     'youtube' => 'https://www.youtube.com/embed/Q6MwVGxFZjU?si=ISTT9JroOl1G-eRk',
                     'description' => '<p>
-                            BISHESH- YO MERO THAU
+                            BISHESH- YO MERO THAU (OFFICIAL MUSIC VIDEO)
+                            <p><b>Role: Cinematographer</b></p>
                         </p>'
                 ],
                 [
@@ -124,7 +137,7 @@ return function (App $app) {
                     'youtube' => 'https://www.youtube.com/embed/vE4Y2t_1t5E?si=EZUr_XmkGMAEzmqW',
                     'description' => ' <p>
                             Viber Saimon - Sangharsa Garr ( Prod : Vino Ramaldo ) nepali hiphop<br>
-                            Cinematographer: Azure Blue and Ranjan Rimal
+                            <p><b>Role: Cinematographer</b></p>
                         </p>'
                 ],
             ]
@@ -140,7 +153,7 @@ return function (App $app) {
                     'youtube' => "https://www.youtube.com/embed/Zzl4D8aJ3S8?si=rFmgS60c_GUZQWOj" ,
                     'description' => '
                         <p>"The Blackwood House - A journey into the Mind, where reality Unravels and the walls Close in. A haunting exploration. where the Lines between Fear & Truth -- BLURS.</p>
-                        <p>Cinematographer - Ranjan Rimal</p>
+                        <p><b>Role: Cinematographer</b></p>
                     '
                 ],
                 
@@ -149,7 +162,7 @@ return function (App $app) {
                     'youtube' => "https://www.youtube.com/embed/9Es0JvoyC-0?si=8LeGSOVKhLYIouFf" ,
                     'description' => '
                         <p>"ABHASA" is a short Horror/Thriller Film inspired by the multitude of paranormal incidents that have been documented in our contemporary, fast-paced world. These occurrences suggest the existence of an uncharted universe, which serves as the backdrop for my fictional narrative. - by Abhishek Passi & Team.</p>
-                        <p>Cinematographer by Ranjan Rimal</p>
+                        <p><b>Role: Cinematographer</b></p>
                     '
                 ],
                 

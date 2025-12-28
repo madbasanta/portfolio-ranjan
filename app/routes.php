@@ -169,25 +169,54 @@ return function (App $app) {
             ]
         ]);
     });
+//    $app->get('/commercials', function (Request $request, Response $response) {
+//
+//        $files = glob(__DIR__ . '/../public/assets/commercials/*.{mp4}', GLOB_BRACE);
+//
+//        $items = [];
+//        foreach ($files as $file) {
+//            $filename = basename($file);
+//            $poster = '/assets/commercials/posters/' . pathinfo($filename, PATHINFO_FILENAME) . '.jpg';
+//            $items[] = [
+//                'title' => pathinfo($filename, PATHINFO_FILENAME),
+//                'video' => '/assets/commercials/' . $filename,
+//                'description' => 'Commercial video: ' . $filename,
+//                'poster' => file_exists(__DIR__ . '/../public' . $poster) ? $poster : '',
+//            ];
+//        }
+//
+//        return $this->get('view')->render($response, 'commercials-cat.twig', [
+//            'pathInfo' => $request->getUri()->getPath(),
+//            'items' => $items,
+//        ]);
+//    });
     $app->get('/commercials', function (Request $request, Response $response) {
-
-        $files = glob(__DIR__ . '/../public/assets/commercials/*.{mp4}', GLOB_BRACE);
-
-        $items = [];
-        foreach ($files as $file) {
-            $filename = basename($file);
-            $poster = '/assets/commercials/posters/' . pathinfo($filename, PATHINFO_FILENAME) . '.jpg';
-            $items[] = [
-                'title' => pathinfo($filename, PATHINFO_FILENAME),
-                'video' => '/assets/commercials/' . $filename,
-                'description' => 'Commercial video: ' . $filename,
-                'poster' => file_exists(__DIR__ . '/../public' . $poster) ? $poster : '',
-            ];
-        }
-
-        return $this->get('view')->render($response, 'commercials.twig', [
+        return $this->get('view')->render($response, 'commercials-cat.twig', [
             'pathInfo' => $request->getUri()->getPath(),
-            'items' => $items,
+            'categories' => ['Sports', 'Travel'],
+            'items' => [
+
+                [
+                    'category' => 'Sports',
+                    'title' => 'The Blackwood House – Where Fear Feels Real / Short Film',
+                    'youtube' => "https://www.youtube.com/embed/Zzl4D8aJ3S8?si=rFmgS60c_GUZQWOj" ,
+                    'description' => '
+                        <p>"The Blackwood House - A journey into the Mind, where reality Unravels and the walls Close in. A haunting exploration. where the Lines between Fear & Truth -- BLURS.</p>
+                        <p><b>Role: Cinematographer</b></p>
+                    '
+                ],
+
+                [
+                    'category' => 'Travel',
+                    'title' => '𝐀 𝐁 𝐇 𝐀 𝐒 𝐀 / 𝐒𝐇𝐎𝐑𝐓 𝐅𝐈𝐋𝐌 / 𝟐𝟎𝟐𝟒 / 𝐀𝐁𝐇𝐈𝐒𝐇𝐄𝐊 𝐏𝐀𝐒𝐒𝐈',
+                    'youtube' => "https://www.youtube.com/embed/9Es0JvoyC-0?si=8LeGSOVKhLYIouFf" ,
+                    'description' => '
+                        <p>"ABHASA" is a short Horror/Thriller Film inspired by the multitude of paranormal incidents that have been documented in our contemporary, fast-paced world. These occurrences suggest the existence of an uncharted universe, which serves as the backdrop for my fictional narrative. - by Abhishek Passi & Team.</p>
+                        <p><b>Role: Cinematographer</b></p>
+                    '
+                ],
+
+            ]
         ]);
     });
     $app->get('/travel', function (Request $request, Response $response) {

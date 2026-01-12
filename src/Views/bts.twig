@@ -32,34 +32,20 @@
 		</div>
 
 		<div class="row content">
+			{% for id in [
+				'DtD1Y5Ah2aI',
+				'zE4F71eyyK4',
+			] %}
 			<div class="col-lg-3" data-aos="fade-right">
-				<video width="100%" height="auto" autoplay loop muted>
-                    <source src="/assets/BTS/My intro wid sub.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                  </video>
+				<iframe width="100%" height="100%" style="aspect-ratio:9/16"
+					src="https://www.youtube.com/embed/{{id}}?autoplay=1&mute=1&rel=0" 
+					title="Indoor set / behind the scene from short film" 
+					frameborder="0" 
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+					referrerpolicy="strict-origin-when-cross-origin" 
+					allowfullscreen></iframe>
 			</div>
-			<div class="col-lg-3" data-aos="fade-right">
-				<video width="100%" height="auto" autoplay loop muted>
-                    <source src="/assets/BTS/BBB last bts.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                  </video>
-			</div>
-			<div class="col-lg-3" data-aos="fade-right">
-				<video width="100%" height="auto" autoplay loop muted>
-                    <source src="/assets/George Building.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                  </video>
-			</div>
-			<div class="col-lg-3" data-aos="fade-right">
-				<video width="100%" height="auto" autoplay loop muted>
-                    <source src="/assets/Cathedrial cruch.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                  </video>
-			</div>
-			<!-- <div class="col-lg-4" data-aos="fade-right">
-				<img loading="lazy" src="/assets/img/abhasa-bts1.jpg" alt="" class="img-fluid">
-			</div> -->
-
+			{% endfor %}
 		</div>
 
 	</div><!-- End About Me -->
